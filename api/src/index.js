@@ -6,6 +6,8 @@ const app = express();
 
 app.use(cors());
 app.use(routes);
+app.use(express.json());
+
 app.get("/", (req, res) => {
   console.log("Working fine asl");
   res.send("Working fine ash");
