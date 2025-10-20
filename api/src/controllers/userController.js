@@ -7,8 +7,8 @@ userController.post("/register", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await userService.register(email, password);
-    res.status(201).end();
+    const result = await userService.register(email, password);
+    res.status(201).json(result);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

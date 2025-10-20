@@ -1,10 +1,19 @@
 import User from "../models/User.js";
 import bcrypt from "bcrypt";
+import { generateAuthToken } from "../utils/tokenUtils.js";
 import jwt from "jsonwebtoken";
 
 export default {
-  register(email, password) {
-    return User.create({ email, password });
+  async register(email, password) {
+    const user = await User.create({ email, password });
+
+    const token = generateAuthToken(user);
+
+    return {
+      _id: user.id,
+      email: user.email,
+      accessToken: token,
+    };
   },
   async login(email, password) {
     const user = await User.findOne({ email });
@@ -19,14 +28,7 @@ export default {
       throw new Error("Username or password are wrong!");
     }
 
-    const payload = {
-      id: user.id,
-      email: user.email,
-    };
-
-    const token = jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: "2h",
-    });
+    const token = generateAuthToken(user);
 
     return {
       _id: user.id,
