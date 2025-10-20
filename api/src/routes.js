@@ -5,6 +5,6 @@ import userController from "./controllers/userController.js";
 const routes = Router();
 
 routes.use("/data/catalog", furnitureController);
-routes.use("/user", userController);
+routes.use("/users", userController);
 
 export default routes;

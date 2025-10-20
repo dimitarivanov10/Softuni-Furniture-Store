@@ -7,7 +7,7 @@ const app = express();
 
 try {
   await mongoose.connect("mongodb://localhost:27017", {
-    dbName: "Furniture Project",
+    dbName: "furniture-project",
   });
   console.log("Successful connection to DB!");
 } catch (error) {
@@ -16,8 +16,8 @@ try {
 }
 
 app.use(cors());
-app.use(routes);
 app.use(express.json());
+app.use(routes);
 
 app.get("/", (req, res) => {
   console.log("Working fine asl");
