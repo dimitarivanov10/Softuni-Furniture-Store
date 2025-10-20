@@ -4,7 +4,7 @@ export function authMiddleware(req, res, next) {
   const token = req.header("X-Authorization");
 
   if (!token) {
-    next();
+    return next();
   }
 
   try {
