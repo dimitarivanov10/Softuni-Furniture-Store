@@ -22,4 +22,7 @@ export default {
       runValidators: true,
     });
   },
+  delete(furnitureId) {
+    return Furniture.findByIdAndDelete(furnitureId);
+  },
 };

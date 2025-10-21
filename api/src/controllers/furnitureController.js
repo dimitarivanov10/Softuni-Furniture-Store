@@ -37,4 +37,15 @@ furnitureController.put("/:furnitureId", async (req, res) => {
   }
 });
 
+furnitureController.delete("/:furnitureId", async(req, res)=>{
+  const furnitureId = req.params.furnitureId;
+
+  try {
+    const furniture = await furnitureService.delete(furnitureId);
+    res.json(furniture)
+  } catch (error) {
+    //err handling
+  }
+})
+
 export default furnitureController;
