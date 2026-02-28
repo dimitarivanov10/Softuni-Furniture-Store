@@ -8,7 +8,7 @@ import { createPage } from './views/create.js';
 import { editPage } from './views/edit.js';
 import { registerPage } from './views/register.js';
 import { loginPage } from './views/login.js';
-import { myPage } from './views/myFurniture.js'
+import { myPage } from './views/myFurniture.js';
 
 
 const main = document.querySelector('.container');
