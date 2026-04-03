@@ -183,7 +183,6 @@ The project follows a **client-server architecture** with:
 │   └── package.json                  # Frontend dependencies
 │
 └── README.md                         # Project documentation
-````
 
 📋 USER MANAGEMENT
 ├── 🔐 Registration
